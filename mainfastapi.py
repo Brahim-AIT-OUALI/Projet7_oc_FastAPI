@@ -5,9 +5,8 @@ from fastapi import FastAPI
 from pydantic import BaseModel
 
 import pandas as pd
-X = pd.read_csv('sous_ensemble_X_saved.csv')
+X = pd.read_csv('X_test_sample_saved.csv')
     
-y = pd.read_csv('y_saved.csv')
 
 
 # Variables sélectionnées
@@ -46,10 +45,10 @@ def predict( ID : request_body):
 
             
     # Prédiction 
-    prevision = pipeline.predict(donnees_client.drop(['SK_ID_CURR'],axis=1))
+   y_train_pred_proba = pipeline.predict_proba(donnees_client.drop(['SK_ID_CURR'],axis=1))
 
 
     # je retourne le sens de la prédiction yes ou now
 
 
-    return {'reponse' : list(prevision)[0]}
+    return {'reponse' :y_train_pred_proba[:,1] }
