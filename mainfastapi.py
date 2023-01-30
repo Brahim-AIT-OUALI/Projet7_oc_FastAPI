@@ -51,4 +51,4 @@ def predict( ID : request_body):
     # je retourne le sens de la prédiction yes ou now
 
 
-    return {'reponse' :prediction }
+    return {'reponse' :prediction[:,1] }
