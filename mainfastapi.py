@@ -5,7 +5,7 @@ from fastapi import FastAPI
 from pydantic import BaseModel
 
 import pandas as pd
-X = pd.read_csv('X_test_sample_saved.csv')
+X = pd.read_csv('X_test_init_sample_saved.csv')
     
 
 
@@ -31,13 +31,12 @@ class request_body(BaseModel):
 
 
 
-
 # Définition du chemin du point de terminaison (API)
 @app.post("/predict")# local : http://127.0.0.1:8000/predict
 
 # Définition de la fonction de prédiction
 
-def predict( ID : request_body):
+def predict_proba( ID : request_body):
     # Nouvelles données sur lesquelles on fait la prédiction
   
     donnees_client = X[vars_selected][X[vars_selected]['SK_ID_CURR']==ID.SK_ID_CURR] 
@@ -45,7 +44,8 @@ def predict( ID : request_body):
 
             
     # Prédiction 
-    prevision = pipeline.predict_proba(donnees_client.drop(['SK_ID_CURR'],axis=1))[:,1]
+    prevision = pipeline.predict_proba(donnees_client.drop(['SK_ID_CURR'],axis=1))
+    prevision = prevision[:, 1]
 
 
     # je retourne le sens de la prédiction yes ou now
