@@ -45,7 +45,7 @@ def predict( ID : request_body):
 
             
     # Prédiction 
-   y_train_pred_proba = pipeline.predict_proba(donnees_client.drop(['SK_ID_CURR'],axis=1))
+    prediction = pipeline.predict_proba(donnees_client.drop(['SK_ID_CURR'],axis=1))
 
 
     # je retourne le sens de la prédiction yes ou now
