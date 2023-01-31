@@ -39,7 +39,7 @@ class request_body(BaseModel):
 def predict_proba( ID : request_body):
     # Nouvelles données sur lesquelles on fait la prédiction
   
-    donnees_client = X[vars_selected][X[vars_selected]['SK_ID_CURR']==ID.SK_ID_CURR] 
+    donnees_client = X[vars_selected][X[vars_selected]['SK_ID_CURR']==ID] 
     
 
             
