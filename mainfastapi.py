@@ -47,5 +47,5 @@ def predict_proba( ID:request_body):
 
 
     # je retourne le sens de la prédiction yes ou now
-    return {'reponse' :list(prevision)[0]}
+    return {'reponse' : prevision}
     
