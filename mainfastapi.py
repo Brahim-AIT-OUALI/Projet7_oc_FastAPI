@@ -32,7 +32,7 @@ class request_body(BaseModel):
 
 
 # Définition du chemin du point de terminaison (API)
-@app.post("/predict")# local : http://127.0.0.1:8000/predict
+@app.post(" ")# local : http://127.0.0.1:8000/predict
 
 # Définition de la fonction de prédiction
 
