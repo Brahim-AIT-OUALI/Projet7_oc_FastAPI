@@ -43,7 +43,7 @@ def predict_proba( ID:request_body):
             
     # Prédiction 
     prevision = pipeline.predict_proba(donnees_client.drop(['SK_ID_CURR'],axis=1))
-    #prevision = prevision[:, 1]
+    prevision = prevision[:, 1]
 
 
     # je retourne le sens de la prédiction yes ou now
