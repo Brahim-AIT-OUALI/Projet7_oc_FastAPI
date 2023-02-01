@@ -42,7 +42,7 @@ def predict_proba( ID:request_body):
     donnees_client = X[vars_selected][X[vars_selected]['SK_ID_CURR']==ID.SK_ID_CURR] 
             
     # Prédiction 
-    prevision = pipeline.predict(donnees_client.drop(['SK_ID_CURR'],axis=1))
+    prevision = pipeline.predict_proba(donnees_client.drop(['SK_ID_CURR'],axis=1))
     #prevision = prevision[:, 1]
 
 
