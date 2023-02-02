@@ -36,16 +36,17 @@ class request_body(BaseModel):
 
 # Définition de la fonction de prédiction
 
-def predict_proba( ID:request_body):
+def predict( ID : request_body):
     # Nouvelles données sur lesquelles on fait la prédiction
   
     donnees_client = X[vars_selected][X[vars_selected]['SK_ID_CURR']==ID.SK_ID_CURR] 
+    
+
             
     # Prédiction 
-    #prevision = pipeline.predict_proba(donnees_client.drop(['SK_ID_CURR'],axis=1))
-   #prevision = prevision[:, 1]
-    prevision = pipeline.predict(donnees_client.drop(['SK_ID_CURR'],axis=1))
+    prevision = pipeline.predict_proba(donnees_client.drop(['SK_ID_CURR'],axis=1))
+    
 
-    # je retourne le sens de la prédiction yes ou now
-    #return {'reponse' : prevision}
-     retur {'reponse' : list(prevision)[0]
+
+    return {'reponse' :  prevision[:,1][0]}
+
