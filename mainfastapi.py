@@ -39,14 +39,14 @@ class request_body(BaseModel):
 def predict( ID : request_body):
     # Nouvelles données sur lesquelles on fait la prédiction
   
-    donnees_client = X[vars_selected][X[vars_selected]['SK_ID_CURR']==ID.SK_ID_CURR] 
+     donnees_client = X[vars_selected][X[vars_selected]['SK_ID_CURR']==ID.SK_ID_CURR] 
     
 
             
-    # Prédiction 
-    prevision = pipeline.predict_proba(donnees_client.drop(['SK_ID_CURR'],axis=1))
+     # Prédiction 
+     prevision = pipeline.predict_proba(donnees_client.drop(['SK_ID_CURR'],axis=1))
     
 
 
-    return {'reponse' :  prevision[:,1][0]}
+     return {'reponse' :  prevision[:,1][0]}
 
