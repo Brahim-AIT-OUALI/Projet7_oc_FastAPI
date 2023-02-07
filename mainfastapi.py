@@ -14,10 +14,11 @@ X = pd.read_csv('X_test_init_sample_saved.csv')
 # Variables sélectionnées
 df_vars_selected = pd.read_csv('df_vars_selected_saved.csv')
 
-X = X[vars_selected]
 
 vars_selected = df_vars_selected['feature'].to_list()
 vars_selected.insert(0, 'SK_ID_CURR') # Ajout de l'identifiant aux features
+
+X = X[vars_selected]
 
 # Chargement du modèle
 from joblib import dump, load
