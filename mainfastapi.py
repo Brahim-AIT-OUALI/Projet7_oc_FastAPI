@@ -14,6 +14,7 @@ X = pd.read_csv('X_test_init_sample_saved.csv')
 # Variables sélectionnées
 df_vars_selected = pd.read_csv('df_vars_selected_saved.csv')
 
+X = X[vars_selected]
 
 vars_selected = df_vars_selected['feature'].to_list()
 vars_selected.insert(0, 'SK_ID_CURR') # Ajout de l'identifiant aux features
@@ -42,7 +43,7 @@ class request_body(BaseModel):
 def predict( ID : request_body):
     # Nouvelles données sur lesquelles on fait la prédiction
   
-    donnees_client = X[vars_selected][X[vars_selected]['SK_ID_CURR']==ID.SK_ID_CURR] 
+    donnees_client = X[X['SK_ID_CURR']==ID.SK_ID_CURR] 
     
 
             
