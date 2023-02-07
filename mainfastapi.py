@@ -32,6 +32,8 @@ app = FastAPI()
 # dot notation (.)
 class request_body(BaseModel):
     SK_ID_CURR : float
+    class Config:
+        orm_mode = True
 
 
 
